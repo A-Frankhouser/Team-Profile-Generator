@@ -1,3 +1,5 @@
+const { default: generate } = require("@babel/generator");
+
 // Generates the Manager Card
 const createManager = function (manager) {
     return `
@@ -60,3 +62,83 @@ const createIntern = function(intern) {
 </div>
     `
 };
+
+createHTML = (data) => {
+
+    cardArray = [];
+
+    for(let i = 0; i < data.length; i++) {
+        const employee = data[i];
+        const role = employee.getPosition();
+
+
+        // Push's Manager Card
+        if (role === 'Manager') {
+            const managerCard = createManager(employee);
+            cardArray.push(managerCard);
+        }
+
+        // Push's Engineer Card
+        if (role === 'Engineer') {
+            const engineerCard = createEngineer(employee);
+            cardArray.push(engineerCard);
+        }
+
+        // Push's Intern Card
+        if (role === 'Intern') {
+            const internCard = createIntern(employee);
+            cardArray.push(internCard);
+        }
+    }
+
+    // Combines Strings
+    const employeeCards = cardArray.join('');
+    const createdTeam = createTeamPage(employeeCards);
+    return createdTeam;
+}
+
+
+// Generates HTML Page
+const createdTeam = function (employeeCards) {
+    return `
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" 
+        rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar bg-dark" id="navbar">
+            <span class="navbar-brand mb-0 h1 w-100 text-center text-white" id="navbar-text">Team Profile</span>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="row justify-content-center" id="team-cards">
+<!--------------------------------Team Cards------------------------------------------------>
+            ${employeeCards}
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
+    `
+}
+
+// Export
+module.exports = createHTML

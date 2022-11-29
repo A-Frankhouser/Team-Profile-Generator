@@ -16,6 +16,7 @@ Once everything is installed then move into the integrated terminal of the index
 To run the tests open up the integrated terminal of index.js and type in "npm test". This will run tests on the employee, manager, intern, and engineer script.
 
 ### <b> <u> Video Demonstration: </b> </u> 
+-Note: If it says video is still processing then you may have to download it. <br />
 https://drive.google.com/file/d/1I6J81rxfSFPghZPH6GEDyQRgryOhal6s/view
 
 ### <b> <u> Screenshot of HTML page: </b> </u>

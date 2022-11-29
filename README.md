@@ -20,7 +20,7 @@ https://drive.google.com/file/d/1I6J81rxfSFPghZPH6GEDyQRgryOhal6s/view
 
 ### <b> <u> Screenshot of HTML page: </b> </u>
 
-![Final HTML page product](../../../../../../../../../C:/Users/frees/OneDrive/Desktop/Uconn%20Bootcamp/Challenges/Team-Pro-Gen/Team-Profile-Generator/assets/Screenshot%20(18).png)
+![Final HTML page product](./assets/Screenshot%20(18).png)
 
 
 ## <b> <u> Questions & Contact: </b> </u>

@@ -1,4 +1,4 @@
-const { default: generate } = require("@babel/generator");
+// const { default: generate } = require("@babel/generator");
 
 // Generates the Manager Card
 const createManager = function (manager) {
@@ -19,6 +19,8 @@ const createManager = function (manager) {
     </div>
 </div>`
 };
+// -------------------------------------------------------------------------------------------------
+
 
 // Generates the Engineer Card
 const createEngineer = function(engineer) {
@@ -34,16 +36,17 @@ const createEngineer = function(engineer) {
             <p class="id">ID: ${engineer.id}</p>
             <p class="email">Email: <a href="mailto:${engineer.email}">${engineer.email}</a>
             </p>
-            <p class="github">Github: <a href="${engineer.github}">${engineer.github}</a>
+            <p class="github">Github: <a href="https://github.com/${engineer.github}">${engineer.github}</a>
             </p>
         </div>
 
     </div>
 </div> `;
 };
+// -------------------------------------------------------------------------------------------------
+
 
 // Generate Intern Card
-
 const createIntern = function(intern) {
     return `
     <div class="col-4 mt-4">
@@ -69,7 +72,7 @@ createHTML = (data) => {
 
     for(let i = 0; i < data.length; i++) {
         const employee = data[i];
-        const role = employee.getPosition();
+        const role = employee.getRole();
 
 
         // Push's Manager Card
@@ -93,13 +96,13 @@ createHTML = (data) => {
 
     // Combines Strings
     const employeeCards = cardArray.join('');
-    const createdTeam = createTeamPage(employeeCards);
-    return createdTeam;
+    const createTeam = createTeamPage(employeeCards);
+    return createTeam;
 }
 
 
 // Generates HTML Page
-const createdTeam = function (employeeCards) {
+const createTeamPage = function (employeeCards) {
     return `
     <!DOCTYPE html>
 <html lang="en">
@@ -133,12 +136,14 @@ const createdTeam = function (employeeCards) {
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.slim.js" integrity="sha256-tXm+sa1uzsbFnbXt8GJqsgi2Tw+m4BLGDof6eUPjbtk=" crossorigin="anonymous"></script>
 
 </body>
 
 </html>
     `
-}
+};
 
 // Export
 module.exports = createHTML

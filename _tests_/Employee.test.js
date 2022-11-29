@@ -1,5 +1,4 @@
 // Employee Constructor
-const { default: test } = require('node:test');
 const Employee = require('../lib/employee');
 
 // Creates an employee
